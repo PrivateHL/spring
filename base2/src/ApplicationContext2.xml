@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置xml 由spring容器创建该类的实例对象-->
+    <bean id="personDao" class="com.simple.first.dao.PersonDaoImpl" />
+    <bean id="personService" class="com.simple.first.service.PersonServiceImpl">
+        <!-- 将persondao注入到personservice实例中-->
+        <property name="personDao" ref="personDao" />
+    </bean>
+</beans>
