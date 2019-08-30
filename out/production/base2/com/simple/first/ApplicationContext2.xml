@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置xml 由spring容器创建该类的实例对象-->
+    <bean id="personDao" class="com.simple.first.dao.PersonDaoImpl" />
+    <bean id="personService" class="com.simple.first.service.PersonServiceImpl">
+        <!-- 将persondao注入到personservice实例中-->
+        <property name="personDao" ref="personDao" />
+    </bean>
+    <!-- 指定工厂和静态工厂方法生成实例 -->
+    <bean id="personDao2" class="com.simple.first.dao.MyBeanFactory" factory-method="createBean2"/>
+    <!-- 指定实例工厂和方法生成实例 静态工厂即使不getBean也会实例化-->
+    <bean id="myBeanFactory" class="com.simple.first.dao.MyBeanFactory" />
+    <bean id="personDao3" factory-bean="myBeanFactory" factory-method="createBean3"/>
+    <!-- 使用设置值方式注入方式 装备Bean -->
+    <bean id="personDao4" class="com.simple.first.dao.PersonDao4Impl">
+        <property name="name" value="zhangsan"/>
+        <property name="age" value="20"/>
+    </bean>
+    <!-- 使用构造方法装配Bean -->
+    <bean id="personDao5" class="com.simple.first.dao.PersonDao5Impl">
+        <constructor-arg index="0" value="lisa"/>
+        <constructor-arg index="1" value="21"/>
+    </bean>
+</beans>

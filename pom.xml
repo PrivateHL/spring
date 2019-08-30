@@ -12,7 +12,7 @@
             <id>PrivateHL</id>
             <name>heling</name>
             <email>PrivateHL@163.com</email>
-            <url />
+            <url/>
             <roles>
                 <role>learner</role>
                 <role>personal</role>
@@ -25,5 +25,19 @@
             <timezone>-5</timezone>
         </developer>
     </developers>
-    
+
+    <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>com.springsource.org.aspectj.weaver</artifactId>
+            <version>1.7.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.11</version>
+        </dependency>
+
+    </dependencies>
+
 </project>

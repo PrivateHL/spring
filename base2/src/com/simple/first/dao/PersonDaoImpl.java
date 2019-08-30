@@ -8,6 +8,6 @@ package com.simple.first.dao;
 public class PersonDaoImpl implements PersonDao {
     @Override
     public void add() {
-        System.out.println("÷¥––¡À");
+        System.out.println("PersonDaoImpl add execute");
     }
 }
