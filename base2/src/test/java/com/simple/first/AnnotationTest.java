@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AnnotationTest {
     @Test
     public void test(){
-        String xmlPath = "com/simple/first/ApplicationContext_Annotation.xml";
+        String xmlPath = "spring/ApplicationContext_Annotation.xml";
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
         PersonAction personAction = (PersonAction) applicationContext.getBean("personAction");
         personAction.add();
