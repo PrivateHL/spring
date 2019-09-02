@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.simple.first.ssh.Person" table="person">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="32" />
+            <!-- 采用uuid.hex作为主键生成机制 3.x开始不再支持uuid.string所以不能使用uuid.hex和uuid.string-->
+            <generator class="uuid" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

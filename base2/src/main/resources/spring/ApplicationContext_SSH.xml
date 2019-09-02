@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/tx
+                http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                http://www.springframework.org/schema/aop
+                http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!-- 数据驱动 -->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <!-- 数据库连接url -->
+        <property name="url" value="jdbc:mysql://localhost/spring"/>
+        <!-- 连接数据库的用户名 -->
+        <property name="username" value="root"/>
+        <!-- 连接数据库的密码 -->
+        <property name="password" value="root"/>
+    </bean>
+    <!-- 配置hibernate工厂bean -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="configLocation"  value="classpath:hibernate/hibernate.cfg.xml"></property>
+        <!-- 把数据源 bean 注入到sessionFactory的dataSource属性 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 引入映射文件，如果有多个可以继续添加 <value> -->
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:hibernate/Person.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="person" class="com.simple.first.ssh.Person">
+    </bean>
+</beans>
