@@ -28,4 +28,10 @@ public class PersonTest {
         session.close();
         sf.close();
     }
+
+    @Test
+    public void testStruts2(){
+        PersonService ts = (PersonService)ctx.getBean("personService_SSH");
+        ts.say();
+    }
 }

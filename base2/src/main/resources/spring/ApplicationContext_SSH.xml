@@ -13,6 +13,8 @@
                 http://www.springframework.org/schema/aop
                 http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
+    <!-- 引入struts配置的服务bean -->
+    <import resource="classpath:struts2/applicationContext_person.xml"/>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <!-- 数据驱动 -->
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>

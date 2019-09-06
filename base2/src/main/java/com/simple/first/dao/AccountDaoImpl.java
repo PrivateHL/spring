@@ -1,7 +1,9 @@
 package com.simple.first.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository("accountDao")
 public class AccountDaoImpl implements AccountDao {
     private JdbcTemplate jdbcTemplate;
 
