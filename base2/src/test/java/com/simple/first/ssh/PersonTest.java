@@ -5,7 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -33,5 +36,16 @@ public class PersonTest {
     public void testStruts2(){
         PersonService ts = (PersonService)ctx.getBean("personService_SSH");
         ts.say();
+    }
+
+    public static void main(String[] args) {
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring/ApplicationContext_SSH.xml");
+
+        context.start();
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -23,7 +23,7 @@ public class AccountService2Impl implements AccountService {
     public void transfer(String outer, String inner, int money) {
         this.accountDao.out(outer,money+1);
         // Ä£Äâ¶Ïµç
-        int i = 1 / 0;
+        //int i = 1 / 0;
         this.accountDao.in(inner,money+1);
 
     }

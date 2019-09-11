@@ -4,5 +4,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="personService_SSH" class="com.simple.first.ssh.PersonServiceImpl" />
-    <bean id="personActiob_SSH" class="com.simple.first.ssh.PersonAction"/>
+    <bean id="personAction_SSH" class="com.simple.first.ssh.PersonAction"/>
 </beans>
