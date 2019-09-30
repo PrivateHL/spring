@@ -5,18 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>heling</groupId>
-    <artifactId>spring</artifactId>
+    <artifactId>UserManagement</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>Practices</module>
-    </modules>
-    <packaging>pom</packaging>
     <developers>
         <developer>
             <id>PrivateHL</id>
             <name>heling</name>
             <email>PrivateHL@163.com</email>
-            <url/>
+            <url />
             <roles>
                 <role>learner</role>
                 <role>personal</role>
@@ -29,7 +25,6 @@
             <timezone>-5</timezone>
         </developer>
     </developers>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -398,4 +393,92 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <transformers>
+                                <!-- 利用插件配置main方法 放进MANIFEST -->
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.simple.first.controller.SSH_Service</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--把附属的jar打到jar内部的lib目录中 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <!--打成jar包后复制到的路径 -->
+                            <outputDirectory>
+                                ${project.build.directory}/conf
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <!--项目中的路径-->
+                                    <directory>src/main/resources/</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>
