@@ -5,9 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>heling</groupId>
-    <artifactId>eureka-server</artifactId>
+    <artifactId>eureka-client-article-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <!-- Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -16,20 +15,15 @@
         <relativePath />
     </parent>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <!-- eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
-        <!-- Eureka服务注册中心 开启登录密码认证，避免服务的IP暴露
-        配置账号密码（spring.security.user.name/password）；
-        增加安全配置类WebSecurityConfig支持URL验证账号密码保证服务提供者能注册-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
     </dependencies>
     <!-- Spring Cloud -->
     <dependencyManagement>
@@ -43,5 +37,23 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <developers>
+        <developer>
+            <id>PrivateHL</id>
+            <name>heling</name>
+            <email>PrivateHL@163.com</email>
+            <url/>
+            <roles>
+                <role>learner</role>
+                <role>personal</role>
+            </roles>
+            <organization>personal</organization>
+            <organizationUrl>none</organizationUrl>
+            <properties>
+                <dept>No</dept>
+            </properties>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
 
 </project>
