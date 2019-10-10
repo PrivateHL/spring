@@ -21,11 +21,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 热部署支持-->
+        <!-- 热部署支持 开启热部署不能同时运行多个实例
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+        -->
         <!--actuator 监控 开启/actuator监控访问接口 IE浏览器有时不能正常访问-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
