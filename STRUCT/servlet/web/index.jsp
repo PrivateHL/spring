@@ -8,9 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>首页</title>
   </head>
   <body>
-  $END$
+  <h3>
+    当前在线人数为：<%=application.getAttribute("intOnlinePersonCount") %>
+  </h3>
+  <a href="<%=response.encodeUrl("logout.jsp") %>">退出登录</a>
   </body>
 </html>

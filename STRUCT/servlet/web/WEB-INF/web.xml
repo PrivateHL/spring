@@ -36,5 +36,32 @@
     <servlet-mapping>
         <servlet-name>requestServlet</servlet-name>
         <url-pattern>/request</url-pattern>
+        <url-pattern>/RequestsServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>responseServlet</servlet-name>
+        <servlet-class>com.servlet.first.ResponseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>responseServlet</servlet-name>
+        <url-pattern>/ResponseServlet</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>myFilter</filter-name>
+        <filter-class>com.servlet.first.MyFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>myFilter</filter-name>
+        <url-pattern>/RequestsServlet</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
+    <listener>
+        <listener-class>com.servlet.first.OnlineListener</listener-class>
+    </listener>
 </web-app>
